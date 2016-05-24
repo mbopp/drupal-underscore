@@ -1,0 +1,42 @@
+<?php
+/**
+ * @file
+ * The underscorephp module.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function underscorephp_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#underscorephp':
+      return '<p>' . t('Underscore PHP Module') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_libraries_info().
+ *
+ * For defining external libraries.
+ */
+
+function underscorephp_libraries_info() {
+
+  // A very simple library. No changing APIs (hence, no versions), no variants.
+  // Expected to be extracted into 'sites/all/libraries/simple'.
+  $libraries['underscorephp'] = array(
+    'name' => 'Underscore PHP library',
+    'vendor url' => 'https://brianhaveri.github.io/Underscore.php/',
+    'download url' => 'https://github.com/brianhaveri/Underscore.php',
+    'version arguments' => array(
+      'file' => 'underscore.php', // Could be any file with version info 
+      'pattern' => '/Underscore.php v(\d+)/', 
+      'lines' => 5,
+    ),
+    'files' => array(
+      'php' => array('underscore.php'), //this can be a path to the file location like array('lib/simple.js')
+    ),
+  );
+
+  return $libraries;
+}
