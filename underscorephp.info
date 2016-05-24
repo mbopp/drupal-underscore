@@ -1,6 +1,6 @@
 name = Underscore.php
 description = Underscore port to PHP for Functional Programming
-package = GoodInk
+package = Other
 core = 7.x
 
 
